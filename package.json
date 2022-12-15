@@ -1,0 +1,19 @@
+{
+  "name": "blogsystemphp",
+  "version": "1.0.0",
+  "description": "blog system created with php and mysql",
+  "main": "home.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andressanzr/blogSystemPHP.git"
+  },
+  "author": "andres sanz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andressanzr/blogSystemPHP/issues"
+  },
+  "homepage": "https://github.com/andressanzr/blogSystemPHP#readme"
+}
