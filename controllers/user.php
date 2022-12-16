@@ -32,13 +32,13 @@ function logInUser($conn, $emailUsername, $password)
             session_start();
             $_SESSION["username"] = $userExists["username"];
             $_SESSION["userId"] = $userExists["userId"];
-            header("location: ../home.php?logedIn=true");
+            header("location: ../index.php?logedIn=true");
         }
         if ($checkPwd === false) {
-            header("location: ../login.php?error=passwordFalse");
+            header("location: ../views/user/login.php?error=passwordFalse");
         }
     } else {
-        header("location: ../login.php?error=userNotExists");
+        header("location: ../views/user/login.php?error=userNotExists");
     }
 }
 function signUpUser($conn, $name, $username, $email, $password)
@@ -54,6 +54,9 @@ function signUpUser($conn, $name, $username, $email, $password)
 
     mysqli_stmt_bind_param($stmt, "ssss", $name, $username, $email, $hashedpwd);
     mysqli_stmt_execute($stmt);
+
+    $_SESSION["username"] = $username;
+    $_SESSION["userId"] = mysqli_insert_id($conn);
 
     mysqli_stmt_close($stmt);
 }

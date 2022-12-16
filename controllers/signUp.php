@@ -1,7 +1,7 @@
 <?php
 require_once "../utilities/inputUtils.php";
 require_once "./dbInfo.php";
-require_once "./userDbController.php";
+require_once "./user.php";
 
 if (isset($_POST["submit"])) {
     // retrieve data from POST request
@@ -15,7 +15,7 @@ if (isset($_POST["submit"])) {
     if (inputOk($userData)) {
         if (!checkUsernameEmailDb($conn, $username, $email)) {
             signUpUser($conn, $name, $username, $email, $password);
-            header("location: ../home.php?message=signedUp");
+            header("location: ../index.php?message=signedUp");
         } else {
             header("location: ../signUp.php?error=usernameExists");
         }
